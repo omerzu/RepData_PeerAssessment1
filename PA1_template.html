@@ -201,12 +201,32 @@ hr {
 </head>
 
 <body>
+<p>Setting knit</p>
+
+<pre><code class="r">require(knitr)
+opts_chunk$set(echo = TRUE, cache = TRUE, cache.path = &quot;cache/&quot;, fig.path = &quot;figure/&quot;)
+</code></pre>
+
 <h2>Loading and preprocessing the data</h2>
 
 <pre><code class="r">#loading libraries
 library(ggplot2)
 library(dplyr)
-#reading file
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+## 
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+## 
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+
+<pre><code class="r">#reading file
 activity.raw = read.csv(&quot;data_files/activity.csv&quot;,stringsAsFactors = FALSE)
 #removeing rows without steps data (NA)
 activity = filter(activity.raw,!is.na(steps))
